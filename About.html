@@ -15,30 +15,45 @@
             color: #333;
         }
 
-        .navbar{
-            position: fixed;
-            width: 100%;
-            background-color:#0070F0;
-            margin: 0;
-            font-size: 12px !important;
-            letter-spacing: 4px;
-            font-weight: 600;
-            margin: 0;
-            padding: 0;
-            top: 0;
-        }
+        .navbar {
+    background-color: #007bff;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+}
 
-        .navbar li a{
-            color: #fff !important;
-            text-decoration: none;
-            padding-left: 20px;
-        }
+.navbar .navbar-brand {
+    color: white !important;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 20px;
+}
 
-        .navbar li a:hover{
-            color: #0070F0 !important;
-            background-color: #fff !important;
-            padding: 12px;
-        }
+.navbar .navbar-nav > li > a {
+    color: white !important;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 15px 20px;
+}
+
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-brand:hover {
+    color: lightgray !important;
+}
+
+.navbar-toggle {
+    border: none;
+    background: none;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: white;
+}
+
+.navbar-collapse.collapse {
+    background-color: #007bff;
+}
+
+
         .container {
             max-width: 800px;
             margin: 20px auto;
@@ -163,11 +178,16 @@
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     
-<nav class="navbar">
-    <ul>
-        <li><a href="index.html">Keyd Navi</a></li>
-    </ul>
-</nav>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand" href="index.html">Keyd Navi</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            
+        </div><!-- /.container-fluid -->
+    </nav>
 <div class="container">
     <h1>Keyd Navi</h1>
     <h2>Software and Web developer</h2>
