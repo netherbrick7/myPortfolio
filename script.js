@@ -1,34 +1,19 @@
-// Function to check if an element is in the viewport
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
+//tooltip
 
-// Function to handle the fade-in effect
-function handleScroll() {
-    // Select both skills and projects sections
-    const sections = document.querySelectorAll('#skills .fadein, #projects .fadein');
-    
-    // Apply the fade-in effect to each section's items
-    sections.forEach(section => {
-        if (isInViewport(section)) {
-            section.querySelectorAll('.skill-item, .project-item').forEach(item => {
-                item.classList.add('visible');
-            });
-        }
+
+
+//Slideanim
+$(document).ready(function() {
+    $(window).scroll(function() {
+        $(".slideanim").each(function() {
+            var pos = $(this).offset().top;
+            var winTop = $(window).scrollTop();
+            if (pos < winTop + $(window).height() - 50) {
+                $(this).addClass("slide");
+            }
+        });
     });
-}
-
-// Listen for scroll events
-window.addEventListener('scroll', handleScroll);
-
-// Trigger the function once to check the initial position of elements
-handleScroll();
+});
 
 
 //Send Message
@@ -62,5 +47,33 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     }).catch(function(error) {
         responseElement.innerText = "Oops! There was a problem sending your message.";
         responseElement.style.color = "red";
+    });
+});
+
+
+$(document).ready(function () {
+    // Add smooth scrolling to all links in navbar + footer link
+    $(".navbar a, footer a[href='#myPage']").on("click", function (event) {
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+  
+        // Store hash
+        var hash = this.hash;
+  
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+        $("html, body").animate(
+          {
+            scrollTop: $(hash).offset().top,
+          },
+          900,
+          function () {
+            // Add hash (#) to URL when done scrolling (default click behavior)
+            window.location.hash = hash;
+          }
+        );
+      } // End if
     });
 });
